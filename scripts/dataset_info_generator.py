@@ -35,8 +35,8 @@ def generate_dataset_info_from_jsons(root_dir):
 
     print(json.dumps(data, indent=4))
 
-    with open('dataset_info.json', 'w') as file:
-        json.dump(data, file, indent=4)
+    # with open('dataset_info.json', 'w') as file:
+    #     json.dump(data, file, indent=4)
 
 # Specify the directory path to start from (e.g., '.')
 root_directory = '/mnt/c/Users/user/Documents/datasets/dataset_20200803/json'

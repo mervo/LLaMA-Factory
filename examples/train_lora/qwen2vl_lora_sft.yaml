@@ -8,7 +8,7 @@ finetuning_type: lora
 lora_target: all
 
 ### dataset
-dataset: mllm_demo,identity  # video: mllm_video_demo
+dataset: ccd_Barge.json, ccd_BulkCarrier.json, ccd_ChemicalTanker.json, ccd_ContainerShip.json, ccd_Cruise.json, ccd_Dredger.json, ccd_Ferry.json, ccd_GeneralCargoShip.json, ccd_HarbourLaunch-PilotVessel.json, ccd_LNG-LPG.json, ccd_RORO.json, ccd_Sampan.json, ccd_SupplyVessel.json, ccd_Tanker-Bunker.json, ccd_Trawler-FishingVessel.json, ccd_Tugboat.json, ccd_Yacht.json, flir_Barge.json, flir_BulkCarrier.json, flir_ContainerShip.json, flir_Cruise.json, flir_Dredger.json, flir_Ferry.json, flir_HarbourLaunch-PilotVessel.json, flir_LNG-LPG.json, flir_RORO.json, flir_Sampan.json, flir_SupplyVessel.json, flir_Tanker-Bunker.json, flir_Trawler-FishingVessel.json, flir_Tugboat.json, flir_Yacht.json, swir_Barge.json, swir_BulkCarrier.json, swir_ChemicalTanker.json, swir_ContainerShip.json, swir_Cruise.json, swir_Dredger.json, swir_Ferry.json, swir_GeneralCargoShip.json, swir_HarbourLaunch-PilotVessel.json, swir_HeavyLoad.json, swir_LNG-LPG.json, swir_RORO.json, swir_Sampan.json, swir_SupplyVessel.json, swir_Tanker-Bunker.json, swir_Trawler-FishingVessel.json, swir_Tugboat.json, swir_Yacht.json
 template: qwen2_vl
 cutoff_len: 2048
 max_samples: 1000

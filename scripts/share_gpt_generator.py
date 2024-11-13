@@ -19,7 +19,6 @@ def display_tree_structure(root_dir):
 
     # Iterate over each item in the current directory
     for spectrum in sorted(items):
-        # print(f'inside {spectrum}')  # spectrums
         # classes, 1 json per class
         sensor = ' '.join(definitions.get(word, word)
                           for word in spectrum.split())
@@ -27,33 +26,33 @@ def display_tree_structure(root_dir):
         if os.path.isdir(item_path):
             classes = os.listdir(item_path)
             for cur_class in classes:
-                # print(cur_class)
                 item_path_path = os.path.join(item_path, cur_class)
                 filenames = os.listdir(item_path_path)  # filenames
-                cur_message = [
-                    {
-                        "content": "<image> describe this image",
-                        "role": "user"
-                    },
-                    {
-                        "content": f"This is a {cur_class} from the {sensor} sensor.",
-                        "role": "assistant"
-                    }
-                ]
-                # print(cur_message)
+                user = {
+                    "content": "<image> describe this image",
+                    "role": "user"
+                }
+                assistant = {
+                    "content": f"This is a {cur_class} from the {sensor} sensor.",
+                    "role": "assistant"
+                }
+
+                messages = []
                 images = []
                 for cur_filename in filenames:
-                    images.append(os.path.join(item_path_path, cur_filename))
-                    # print(os.path.join(item_path_path, cur_filename))
-                data = {
-                    "messages": cur_message,
-                    "images": images
-                }
+                    messages.append(user)
+                    messages.append(assistant)
+                    images.append(os.path.join(item_path_path.replace(
+                        '/mnt/c/Users/user/Documents/datasets', '/app/data'), cur_filename))
+                data = [
+                    {
+                        "messages": messages,
+                        "images": images
+                    }
+                ]
 
                 with open(f'{spectrum}_{cur_class}.json', 'w') as file:
                     json.dump(data, file, indent=4)
-
-                # print(json.dumps(data, indent=4))
 
 
 # Specify the directory path to start from (e.g., '.')
